@@ -27,20 +27,26 @@ function Contact() {
         setEmail('');
         setMessage('');
 
-        // Set timer to clear the message after 2 seconds
-        setTimeout(() => {
+        // Set timer to clear the message after 5 seconds
+        const timer = setTimeout(() => {
           setStatusMessage('');
-        }, 2000);
+        }, 5000);
+
+        // Clear the timer on unmount or when status message changes
+        return () => clearTimeout(timer);
 
       }, (err) => {
         console.log('FAILED...', err);
         setStatusMessage('Failed to send your message. Please try again later.');
         setIsSuccess(false);
 
-        // Set timer to clear the message after 2 seconds for error message
-        setTimeout(() => {
+        // Set timer to clear the message after 5 seconds
+        const timer = setTimeout(() => {
           setStatusMessage('');
-        }, 2000);
+        }, 5000);
+
+        // Clear the timer on unmount or when status message changes
+        return () => clearTimeout(timer);
       });
   };
 
