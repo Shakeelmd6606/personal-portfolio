@@ -1,5 +1,5 @@
 import React from 'react';
-import resume from '../assets/shakeel resume_resume_2';
+import resume from '../assets/shakeel_resume_2.pdf';
 
 function Hero() {
   const whatsappNumber = '7330796606'; 
