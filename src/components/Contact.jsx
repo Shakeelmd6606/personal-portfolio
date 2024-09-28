@@ -74,7 +74,7 @@ function Contact() {
             <p>I'm open to discussing web development projects or partnership opportunities.</p>
             <div className='mb-4 mt-8'>
               <FaEnvelope className='inline-block text-green-400 mr-2' />
-              <a href="mailto:youremail@example.com" className='hover:underline'>
+              <a href="mailto:shakeelmd6606@gmail.com" className='hover:underline'>
                 shakeelmd6606@gmail.com
               </a>
             </div>
