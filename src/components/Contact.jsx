@@ -12,6 +12,20 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validation: Check if all fields are filled
+    if (!name || !email || !message) {
+      setStatusMessage('Please fill out all fields.');
+      setIsSuccess(false);
+
+      // Set timer to clear the message after 5 seconds
+      const timer = setTimeout(() => {
+        setStatusMessage('');
+      }, 5000);
+
+      // Clear the timer on unmount or when status message changes
+      return () => clearTimeout(timer);
+    }
+
     const templateParams = {
       name,
       email,
