@@ -6,11 +6,11 @@ function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [statusMessage, setStatusMessage] = useState(''); 
+  const [statusMessage, setStatusMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(null);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     const templateParams = {
       name,
@@ -26,10 +26,21 @@ function Contact() {
         setName('');
         setEmail('');
         setMessage('');
+
+        // Set timer to clear the message after 2 seconds
+        setTimeout(() => {
+          setStatusMessage('');
+        }, 2000);
+
       }, (err) => {
         console.log('FAILED...', err);
-        setStatusMessage('Failed to send your message. Please try again later.'); 
-        setIsSuccess(false); 
+        setStatusMessage('Failed to send your message. Please try again later.');
+        setIsSuccess(false);
+
+        // Set timer to clear the message after 2 seconds for error message
+        setTimeout(() => {
+          setStatusMessage('');
+        }, 2000);
       });
   };
 
@@ -50,7 +61,7 @@ function Contact() {
             <div className='mb-4'>
               <FaPhone className='inline-block text-green-400 mr-2' />
               <a href="tel:+917330796606" className='hover:underline'>
-              <span>+91 7330796606</span>
+                <span>+91 7330796606</span>
               </a>
             </div>
             <div className='mb-4'>
